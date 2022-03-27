@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+              
+    <div class="col-md-12">
+      <!-- HTML5 Inputs -->
+      <div class="card mb-4">
+        <h5 class="card-header">Add Employee</h5>
+        <div class="card-body">
+          <div class="mb-3 row">
+            <label for="html5-text-input" class="col-md-2 col-form-label">Name</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" value="" id="html5-text-input" />
+            </div>
+          </div>
+        
+          <div class="mb-3 row">
+            <label for="html5-email-input" class="col-md-2 col-form-label">Email</label>
+            <div class="col-md-10">
+              <input class="form-control" type="email" value="" id="html5-email-input" />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="html5-url-input" class="col-md-2 col-form-label">Age</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" id="html5-url-input"/>
+            </div>
+          </div>
+         
+          <div class="mb-3 row">
+            <label for="formFile" class="col-md-2 col-form-label">Upload Image</label>
+            <div class="col-md-10">
+            <input class="form-control" type="file" id="formFile" />
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+
+  {% endblock %}
