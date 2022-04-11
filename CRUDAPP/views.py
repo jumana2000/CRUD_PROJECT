@@ -5,7 +5,7 @@ from .forms import *
 
 def index(request):
     if request.method == 'POST':
-        form = EmployeeForm(request.POST)
+        form = EmployeeForm(request.POST, request.FILES)
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
@@ -14,9 +14,9 @@ def index(request):
             data = Employeedb(name=name, email=email, place=place, upload_image=upload_image)
             data.save()
             return redirect('index')
-        else:
-            form = EmployeeForm
-        emp = Employeedb.objects.all()
+    else:
+        form = EmployeeForm
+    emp = Employeedb.objects.all()
     return render(request,'index.html',{'form':form,'emp':emp})
 
 
