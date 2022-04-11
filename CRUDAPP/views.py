@@ -19,4 +19,20 @@ def index(request):
     emp = Employeedb.objects.all()
     return render(request,'index.html',{'form':form,'emp':emp})
 
+def update(request, dataid):
+    if request.method == 'POST':
+        update = Employeedb.objects.get(id=dataid)
+        form = EmployeeForm(request.POST, instance=update)
+        if form.is_valid():
+            form.save()
+    else:
+        update = Employeedb.objects.get(id=dataid)
+        form = EmployeeForm(instance=update)
+        return render(request, 'update.html', {'form': form})
+    return redirect(index)
 
+def delete(request,dataid):
+    if request.method == 'POST':
+        delete_emp = Employeedb.objects.get(id=dataid)
+        delete_emp.delete()
+    return redirect('index')
